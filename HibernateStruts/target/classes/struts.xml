@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+
+<struts>
+	<package name="demo" extends="struts-default" >
+		<action name="findall" class="edu.xaut.web.UserAction" method="findAll">
+			<result name="success">
+				/WEB-INF/userlist.jsp
+			</result>
+		</action>
+		<action name="add" class="edu.xaut.web.UserAction" method="add">
+			<result name="reload">
+				/WEB-INF/addUser.jsp
+			</result>
+			<result name="success">
+				/WEB-INF/success.jsp
+			</result>
+		</action>
+		<action name="deleteUser" class="edu.xaut.web.UserAction" method="delete">
+			<result name="success" type="chain">
+				/WEB-INF/userlist.jsp
+			</result>
+		</action>
+	</package>
+</struts>

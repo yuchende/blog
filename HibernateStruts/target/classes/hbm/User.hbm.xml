@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<!-- class配置了对象和表的关系 -->
+	<class name="edu.xaut.bean.User" table="user_info">
+	<!-- id元素是用来配置主键字段和属性关系的
+		name:属性名
+		column:字段名
+		type:两者者之间转换时使用的类型
+	 -->
+		<id name="id" type="integer" column="id" >
+		<!-- 用来指明主键生成方式 -->
+			<generator class="native">
+				<param name="native">native</param>
+			</generator>
+		</id>
+		<!-- property元素是用来配置普通字段和属性关系的 -->
+		<!--<property name="dept_id" type="java.long.Integer" column="dept_id"/>  -->  
+		<property name="username" type="string" column="username"/>
+		<property name="name" type="string" column="name"/>
+		<property name="gender" type="string" column="gender"/>
+		<property name="password" type="string" column="password"/>
+	</class>
+</hibernate-mapping>
