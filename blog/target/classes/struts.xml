@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+
+<struts>
+	<package name="demo" extends="struts-default" >
+		<action name="findall" class="edu.xaut.web.UserAction" method="findAll">
+			<result name="success">
+				/WEB-INF/love.jsp
+			</result>
+		</action>
+		
+	</package>
+</struts>

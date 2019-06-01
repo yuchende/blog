@@ -1,0 +1,85 @@
+body{
+
+}
+#wrap{
+	width:100%;
+	height:1000px;
+	background-color:#cccccc;
+	display:flex;
+	justify-content:center;
+	padding-top:200px;
+	text-align:center;
+}
+.head{
+	border-bottom:1px solid gray;
+	margin-top:6px;
+	font-size:30px;
+}
+.head1{
+	margin-top:-10px;
+	display:flex;
+	justify-content:center;
+}
+.head0{
+	height:120px;
+	background-color:#CCFF66 ;
+	padding-top:40px;
+	border-top-right-radius:10px;
+	border-top-left-radius:10px;
+}
+.tabl{
+	margin-top:5px;
+	border-top:1px solid gray;
+	border-bottom:1px solid gray;
+	background-color:#99CCFF ;
+	border:1px;
+}
+.button{
+	width:100%;
+	height:40px;
+	background-color:#CCCC33;
+	margin-top:30px;
+	margin-bottom:10px;
+	
+	border-radius:7px;
+    border: none;
+    color: white;
+   
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+.butto{
+	background-color:#ABCDEF;
+	height:100px;
+}
+.foot{
+	
+	width:100%;
+	height:30px;
+	background-color:#CCFF66 ;
+	border-bottom-left-radius:10px;
+	border-bottom-right-radius:10px;
+
+	padding-right:1px;
+}
+.foot_son{
+	width:80px;
+	
+	font-size:14px;
+	margin-left:5px;
+	margin-top:1px;
+	padding-top:6px;
+	
+}
+#pages{
+	background-color:#ABCDEF;
+}
+.table_header{
+	height:50px;
+}
+.row1{
+	height:40px;
+}
