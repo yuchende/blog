@@ -5,9 +5,18 @@ import org.springframework.stereotype.Controller;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import edu.xaut.bean.Article;
+import edu.xaut.service.ArticleService;
+
+import javax.annotation.*;
+
 @Controller
 @Scope("prototype")
 public class ArticleAction extends ActionSupport {
+	
+	@SuppressWarnings("restriction")
+	@Resource
+	private ArticleService articleService;
 	
 	String name;
 	String varity;
@@ -56,8 +65,21 @@ public class ArticleAction extends ActionSupport {
 
 
 	public String saveArti() {
+		if(name!=null) {
+			Article art=new Article();
+			art.setTitle(name);
+			art.setVarity(varity);
+			art.setContent(article);
+			art.setMark(describe);
+			art.setUserID(1);
+			articleService.save(art);
+			System.out.println(art.toString());
+			
+			return "redirect";
+		}else {
+			return SUCCESS;
+		}
 		
-		System.out.println(article);
-		return SUCCESS;
+		
 	}
 }

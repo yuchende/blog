@@ -6,7 +6,7 @@ public class Article {
 	String varity;
 	String content;
 	String mark;
-	String userID;
+	int userID;
 	public int getId() {
 		return id;
 	}
@@ -37,11 +37,18 @@ public class Article {
 	public void setMark(String mark) {
 		this.mark = mark;
 	}
-	public String getUserID() {
+
+	public int getUserID() {
 		return userID;
 	}
-	public void setUserID(String userID) {
+	public void setUserID(int userID) {
 		this.userID = userID;
 	}
+	@Override
+	public String toString() {
+		return "Article [id=" + id + ", title=" + title + ", varity=" + varity + ", content=" + content + ", mark="
+				+ mark + ", userID=" + userID + "]";
+	}
+	
 	
 }
