@@ -11,5 +11,17 @@
 			</result>
 		</action>
 		
+		<action name="collection" class="edu.xaut.web.CollecAction" method="findCollec">
+			<result name="success">
+				/WEB-INF/love.jsp
+			</result>
+		</action>
+		
+		<action name="saveArticle" class="edu.xaut.web.ArticleAction" method="saveArti">
+			<result name="success">
+				/WEB-INF/writeArticle.jsp
+			</result>
+		</action>
+		
 	</package>
 </struts>

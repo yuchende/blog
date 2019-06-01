@@ -47,12 +47,12 @@
     <div class="row" style="overflow: auto">
         <div class="col-md-12" style="background-color:rgba(255,255,255,0.8);height:87vh; margin-left: 0px;padding-top: 10px;">
             <div role="form" class="form-horizontal" style="margin-left: 18px;">
-                <form>
+                <form action="saveArticle.action" method="post">
                     <div class="form-group" style="width: 300px;margin-left: 1px;">
-                        <input class="form-control" placeholder="文章标题">
+                        <input class="form-control" name="name" placeholder="文章标题">
                     </div>
                     <div class="form-group" style="width: 300px;margin-left: 1px;">
-                        <select class="form-control">
+                        <select class="form-control" name="varity">
                             <option>分类</option>
                             <option>Java</option>
                             <option>C++</option>
@@ -67,7 +67,7 @@
                         <textarea id="article" name="article" style="display: none;"></textarea>
                     </div>
                     <div class="form-group" style="margin-left:1px;">
-                        <textarea  class="form-control" name="article1" style="width: 300px;height: 100px;" placeholder="文章描述，至少30字"></textarea>
+                        <textarea  class="form-control" name="describe" style="width: 300px;height: 100px;" placeholder="文章描述，至少30字"></textarea>
                     </div>
                     <div class="form-group" style="width: 300px;margin-left:1px;">
 

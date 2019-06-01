@@ -7,6 +7,7 @@
 --%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
          pageEncoding="utf-8"%>
+<%@taglib uri="/struts-tags" prefix="s" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,7 +32,7 @@
             display: none;
         }
         .positionBlocA{
-            margin-left: 20px;margin-bottom:2px;
+            margin-bottom:2px;
         }
 
     </style>
@@ -62,68 +63,23 @@
             </div>
             <div class="col-md-8 col-md-offset-2 " style="height: 900px;background-color: rgba(255,255,255,0.7);overflow: auto;">
                 <ul>
-                    <li><button type="button" class="btn btn-success btn-xs positionBlocA" style="margin-left: 0px;">增加分类</button></li>
+                
+                	<%	
+                	%>
+                	<li><button type="button" class="btn btn-success btn-xs positionBlocA" style="margin-left: 0px;">增加分类</button></li>
+                	<s:iterator value="res" status="st">
+                    
                     <li>
-                        <label>java高级好文博客<button type="button" class="btn btn-success btn-xs positionBlocA ">增加记录</button></label>
-                        <ul>
-                            <li><label>java设计模式</label><a href="#">http://localhost:63342/webstormWorkspace/love.ht7h624prrirmnt625hiq#</a><button type="button" class="btn btn-xs btn-danger positionBlocA" style="">删除</button></li>
-                            <li><label>java设计模式</label><a href="#">http://localhost:63342/webstormWorkspace/love.ht7h624prrirmnt625hiq#</a><button type="button" class="btn btn-xs btn-danger positionBlocA" style="">删除</button></li>
-                            <li><label>java设计模式</label><a href="#">http://localhost:63342/webstormWorkspace/love.ht7h624prrirmnt625hiq#</a><button type="button" class="btn btn-xs btn-danger positionBlocA" style="">删除</button></li>
-                            <li><label>java设计模式</label><a href="#">http://localhost:63342/webstormWorkspace/love.ht7h624prrirmnt625hiq#</a><button type="button" class="btn btn-xs btn-danger positionBlocA" style="">删除</button></li>
-                            <li><label>java设计模式</label><a href="#">http://localhost:63342/webstormWorkspace/love.ht7h624prrirmnt625hiq#</a><button type="button" class="btn btn-xs btn-danger positionBlocA" style="">删除</button></li>
-                        </ul>
+                     <label><s:property value="varity"></s:property></label>
+                     <ul>
+                     
+                       	<s:iterator value="set" status="st">
+                            	<li><button type="button" class="btn btn-xs btn-danger positionBlocA" style="">删除当前</button>&nbsp;&nbsp;<label><s:property value="title"/></label>&nbsp;&nbsp;<a href="#"><s:property value="url"/></a></li>
+                       </s:iterator>
+                       <li><button type="button" class="btn btn-default btn-xs positionBlocA ">增加记录</button></li>
+                       </ul> 
                     </li>
-                    <li>
-                        <label>java高级好文博客<button type="button" class="btn btn-success btn-xs positionBlocA ">增加记录</button></label>
-                        <ul>
-                            <li><label>java设计模式</label><a href="#">http://localhost:63342/webstormWorkspace/love.ht7h624prrirmnt625hiq#</a><button type="button" class="btn btn-xs btn-danger positionBlocA" style="">删除</button></li>
-                            <li><label>java设计模式</label><a href="#">http://localhost:63342/webstormWorkspace/love.ht7h624prrirmnt625hiq#</a><button type="button" class="btn btn-xs btn-danger positionBlocA" style="">删除</button></li>
-                            <li><label>java设计模式</label><a href="#">http://localhost:63342/webstormWorkspace/love.ht7h624prrirmnt625hiq#</a><button type="button" class="btn btn-xs btn-danger positionBlocA" style="">删除</button></li>
-                            <li><label>java设计模式</label><a href="#">http://localhost:63342/webstormWorkspace/love.ht7h624prrirmnt625hiq#</a><button type="button" class="btn btn-xs btn-danger positionBlocA" style="">删除</button></li>
-                            <li><label>java设计模式</label><a href="#">http://localhost:63342/webstormWorkspace/love.ht7h624prrirmnt625hiq#</a><button type="button" class="btn btn-xs btn-danger positionBlocA" style="">删除</button></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <label>java高级好文博客<button type="button" class="btn btn-success btn-xs positionBlocA ">增加记录</button></label>
-                        <ul>
-                            <li><label>java设计模式</label><a href="#">http://localhost:63342/webstormWorkspace/love.ht7h624prrirmnt625hiq#</a><button type="button" class="btn btn-xs btn-danger positionBlocA" style="">删除</button></li>
-                            <li><label>java设计模式</label><a href="#">http://localhost:63342/webstormWorkspace/love.ht7h624prrirmnt625hiq#</a><button type="button" class="btn btn-xs btn-danger positionBlocA" style="">删除</button></li>
-                            <li><label>java设计模式</label><a href="#">http://localhost:63342/webstormWorkspace/love.ht7h624prrirmnt625hiq#</a><button type="button" class="btn btn-xs btn-danger positionBlocA" style="">删除</button></li>
-                            <li><label>java设计模式</label><a href="#">http://localhost:63342/webstormWorkspace/love.ht7h624prrirmnt625hiq#</a><button type="button" class="btn btn-xs btn-danger positionBlocA" style="">删除</button></li>
-                            <li><label>java设计模式</label><a href="#">http://localhost:63342/webstormWorkspace/love.ht7h624prrirmnt625hiq#</a><button type="button" class="btn btn-xs btn-danger positionBlocA" style="">删除</button></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <label>java高级好文博客<button type="button" class="btn btn-success btn-xs positionBlocA ">增加记录</button></label>
-                        <ul>
-                            <li><label>java设计模式</label><a href="#">http://localhost:63342/webstormWorkspace/love.ht7h624prrirmnt625hiq#</a><button type="button" class="btn btn-xs btn-danger positionBlocA" style="">删除</button></li>
-                            <li><label>java设计模式</label><a href="#">http://localhost:63342/webstormWorkspace/love.ht7h624prrirmnt625hiq#</a><button type="button" class="btn btn-xs btn-danger positionBlocA" style="">删除</button></li>
-                            <li><label>java设计模式</label><a href="#">http://localhost:63342/webstormWorkspace/love.ht7h624prrirmnt625hiq#</a><button type="button" class="btn btn-xs btn-danger positionBlocA" style="">删除</button></li>
-                            <li><label>java设计模式</label><a href="#">http://localhost:63342/webstormWorkspace/love.ht7h624prrirmnt625hiq#</a><button type="button" class="btn btn-xs btn-danger positionBlocA" style="">删除</button></li>
-                            <li><label>java设计模式</label><a href="#">http://localhost:63342/webstormWorkspace/love.ht7h624prrirmnt625hiq#</a><button type="button" class="btn btn-xs btn-danger positionBlocA" style="">删除</button></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <label>java高级好文博客<button type="button" class="btn btn-success btn-xs positionBlocA ">增加记录</button></label>
-                        <ul>
-                            <li><label>java设计模式</label><a href="#">http://localhost:63342/webstormWorkspace/love.ht7h624prrirmnt625hiq#</a><button type="button" class="btn btn-xs btn-danger positionBlocA" style="">删除</button></li>
-                            <li><label>java设计模式</label><a href="#">http://localhost:63342/webstormWorkspace/love.ht7h624prrirmnt625hiq#</a><button type="button" class="btn btn-xs btn-danger positionBlocA" style="">删除</button></li>
-                            <li><label>java设计模式</label><a href="#">http://localhost:63342/webstormWorkspace/love.ht7h624prrirmnt625hiq#</a><button type="button" class="btn btn-xs btn-danger positionBlocA" style="">删除</button></li>
-                            <li><label>java设计模式</label><a href="#">http://localhost:63342/webstormWorkspace/love.ht7h624prrirmnt625hiq#</a><button type="button" class="btn btn-xs btn-danger positionBlocA" style="">删除</button></li>
-                            <li><label>java设计模式</label><a href="#">http://localhost:63342/webstormWorkspace/love.ht7h624prrirmnt625hiq#</a><button type="button" class="btn btn-xs btn-danger positionBlocA" style="">删除</button></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <label>java高级好文博客<button type="button" class="btn btn-success btn-xs positionBlocA ">增加记录</button></label>
-                        <ul>
-                            <li><label>java设计模式</label><a href="#">http://localhost:63342/webstormWorkspace/love.ht7h624prrirmnt625hiq#</a><button type="button" class="btn btn-xs btn-danger positionBlocA" style="">删除</button></li>
-                            <li><label>java设计模式</label><a href="#">http://localhost:63342/webstormWorkspace/love.ht7h624prrirmnt625hiq#</a><button type="button" class="btn btn-xs btn-danger positionBlocA" style="">删除</button></li>
-                            <li><label>java设计模式</label><a href="#">http://localhost:63342/webstormWorkspace/love.ht7h624prrirmnt625hiq#</a><button type="button" class="btn btn-xs btn-danger positionBlocA" style="">删除</button></li>
-                            <li><label>java设计模式</label><a href="#">http://localhost:63342/webstormWorkspace/love.ht7h624prrirmnt625hiq#</a><button type="button" class="btn btn-xs btn-danger positionBlocA" style="">删除</button></li>
-                            <li><label>java设计模式</label><a href="#">http://localhost:63342/webstormWorkspace/love.ht7h624prrirmnt625hiq#</a><button type="button" class="btn btn-xs btn-danger positionBlocA" style="">删除</button></li>
-                        </ul>
-                    </li>
-
+                    </s:iterator>
 
                 </ul>
             </div>

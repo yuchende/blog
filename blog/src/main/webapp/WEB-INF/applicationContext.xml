@@ -26,6 +26,7 @@
 	<context:component-scan base-package="edu.xaut.dao"></context:component-scan>
 
 	<util:properties id="db" location="classpath:conf/db.properties"></util:properties>
+
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="#{db.driverClassName}"></property>
 		<property name="url" value="#{db.url}"></property>
