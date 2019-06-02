@@ -7,54 +7,26 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-
-    <style type="text/css">
-        body{
-            background-color: #CCCCCC;
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/login.css">
+	<script>
+        function show()  //显示隐藏层和弹出层
+        {
+            var hideobj=document.getElementById("hidebg");
+            hidebg.style.display="block";  //显示隐藏层
+            hidebg.style.height=document.body.clientHeight+"px";  //设置隐藏层的高度为当前页面高度
+            document.getElementById("hidebox").style.display="block";  //显示弹出层
         }
-        .row{
-            margin-top: 100px;
+        function hide()  //去除隐藏层和弹出层
+        {
+            document.getElementById("hidebg").style.display="none";
+            document.getElementById("hidebox").style.display="none";
         }
-        #rowContent{
-            height: 1000px;
-            border:1px solid rgba(112,128,144,0.2);
-            border-top:0;
-            background-color:rgba(255,255,255,0.5);
-        }
-        .blockCustom{
-            height: 200px;background-color: #FFFFFF; margin-left:40px;margin-bottom: 10px;
-            margin-top: 10px;
-        }
-        .blockCustomInside{
-            height:40px;background-color: rgba(255,255,204,0.5);text-align: center;margin-top:20px;
-        }
-        .blockCustomInside2{
-            height:140px;background-color: rgba(02,102,153,0.12);margin-top: 5px;
-        }
-        .positionBlocA{
-            margin-left:40px;
-            margin-bottom: 10px;
-            margin-top: 10px;
-        }
-        .positionBlocB{
-            margin-left:10px;margin-bottom: 10px;
-            margin-top: 10px;
-        }
-        .positionBlocC{
-            margin-left:70px;position:absolute;margin-top: 220px;margin-bottom: 10px
-
-        }
-        .bacgroundA{
-            background-color: #FFFFFF;
-        }
-        .sizeOfA{
-            height: 220px;
-        }
-
-    </style>
+    </script>
 </head>
 <body>
-    <div class="container" style="height:1000px;">
+	<div id="hidebg"></div>
+    <div id="content" class="container" style="height:1000px;">
 <!--            <img src="b.jpg" class="img-responsive">-->
         <nav role="navigation" class="col-md-offset-2 col-md-8 navbar navbar-inverse navbar-fixed-top" style="height:80px;padding-top: 15px;    ">
             <div class="container">
@@ -67,11 +39,11 @@
                         <li><a href="collection">收藏</a></li>
                         <li ><a href="article_save">写文章</a></li>
                         <li><a href="#">关于我</a></li>
+                        <li style="position:absolute;right:5px;"><a onclick="show()">登陆</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
-
         <div  id="rowContent" class="row">
         		<s:iterator value="list" status="st">
                  <div class="col-md-3 sizeOfA bacgroundA positionBlocA">
@@ -113,7 +85,44 @@
 
 
     </div>
+	<div id="hidebox" class="login col-xs-offset-1" >
+    <form role="form" class="form-horizontal col-sm-offset-1 formposition">
 
+        <div class="form-group">
+            <label class="col-sm-12 control-label" style="font-weight:600;font-size:25px;text-align: center;margin-bottom: 15px;">欢迎登陆&nbsp;&nbsp;&nbsp;Myblog</label>
+            <div style="">
+                <input type="button" style=" position:absolute; right:5px;top:5px;" class="btn btn-danger btn-xs" value="✖" onclick="hide()">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">name:</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" name="name" placeholder="请输入邮箱或者手机号">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">password:</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" name="name" placeholder="请输入密码">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-11 ">
+                <input type="submit" class="form-control btn btn-success btn-sm" value="登陆">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-11 ">
+                <input type="reset" class="form-control btn btn-info btn-sm" value="重置">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-11 ">
+                <input type="submit" class="form-control btn btn-default btn-sm" value="注册">
+            </div>
+        </div>
+    </form>
+</div>
 
 </body>
 </html>
