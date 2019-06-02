@@ -5,6 +5,8 @@ import org.springframework.stereotype.Repository;
 
 import edu.xaut.bean.Article;
 
+import java.util.List;
+
 import javax.annotation.*;
 
 @Repository("Article")
@@ -18,6 +20,23 @@ public class ArticleDaoImpl implements ArticleDao {
 		hibernateTemplate.save(art);
 		System.out.println("执行完");
 		return true;
+	}
+
+	public List<Article> findAll(int userID) {
+		// art where art.userID="+userID;
+		String hql="from Article";
+		return hibernateTemplate.find(hql);
+	}
+
+	public Article findArtiByID(int id, int userID) {
+		// TODO Auto-generated method stub
+		String hql="from Article ar where ar.id="+id+"and ar.userID="+userID;
+		List<Article> list=hibernateTemplate.find(hql);
+		Article ar=null;
+		for(Article art:list) {
+			ar=art;
+		}
+		return ar;
 	}
 	
 	

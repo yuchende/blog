@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
                                    pageEncoding="utf-8"%>
+                                   <%@taglib uri="/struts-tags" prefix="s" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +26,7 @@
             margin-top: 10px;
         }
         .blockCustomInside{
-            height:20px;background-color: rgba(255,255,204,0.5);text-align: center;margin-top:20px;
+            height:40px;background-color: rgba(255,255,204,0.5);text-align: center;margin-top:20px;
         }
         .blockCustomInside2{
             height:140px;background-color: rgba(02,102,153,0.12);margin-top: 5px;
@@ -47,7 +48,7 @@
             background-color: #FFFFFF;
         }
         .sizeOfA{
-            height: 200px;
+            height: 220px;
         }
 
     </style>
@@ -58,13 +59,13 @@
         <nav role="navigation" class="col-md-offset-2 col-md-8 navbar navbar-inverse navbar-fixed-top" style="height:80px;padding-top: 15px;    ">
             <div class="container">
                 <div class="navbar-header " style="border:1px solid gray;padding-left: 10px;">
-                    <a href="main.html" class="navbar-brand">首页</a>
+                    <a href="article_main" class="navbar-brand">首页</a>
                  </div>
                 <div id="navbar" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li><a href="aritcle.html">文章</a></li>
-                        <li><a href="love.html">收藏</a></li>
-                        <li ><a href="wirteAritcle.html">写文章</a></li>
+                        <li><a href="article_findAll">文章</a></li>
+                        <li><a href="collection">收藏</a></li>
+                        <li ><a href="article_save">写文章</a></li>
                         <li><a href="#">关于我</a></li>
                     </ul>
                 </div>
@@ -72,32 +73,19 @@
         </nav>
 
         <div  id="rowContent" class="row">
+        		<s:iterator value="list" status="st">
                  <div class="col-md-3 sizeOfA bacgroundA positionBlocA">
                      <div class="col-sm-12 blockCustomInside" >
-                         <label style="">二叉树的应用</label>
+                         <label style=""><a href="article_findByID?articlesigle=<s:property value="id" />"><s:property value="title"/></a></label>
                      </div>
+                     <a href="article_findByID?articlesigle=<s:property value="id" />" style="color:black;">
                      <div class="col-sm-12 blockCustomInside2" >
-                         <label style="font-weight: 100">二叉树的应用sdfjsld解放拉萨酱豆腐睡觉了对方就是劳动法就了</label>
+                         <label style="font-weight: 100"><s:property value="mark"/></label>
                      </div>
+                     </a>
                  </div>
-
-                 <div class="col-md-3 positionBlocB bacgroundA sizeOfA">
-                     <div class="col-sm-12" style="height:20px;background-color: rgba(255,255,204,0.5);text-align: center;margin-top:20px;">
-                         <label style="">二叉树的应用</label>
-                     </div>
-                     <div class="col-sm-12 blockCustomInside2">
-                         <label style="font-weight: 100">二叉树的应用sdfjsld解放拉萨酱豆腐睡觉了对方就是劳动法就了</label>
-                     </div>
-                 </div>
-
-                 <div class="col-md-3 bacgroundA positionBlocB" style="height: 400px;">
-                     <div class="col-sm-12" style="height:20px;background-color: rgba(255,255,204,0.5);text-align: center;margin-top:50px;">
-                         <label style="">二叉树的应用</label>
-                     </div>
-                     <div class="col-sm-12" style="height:310px;background-color: rgba(02,102,153,0.12);margin-top: 5px">
-                         <label style="font-weight: 100">二叉树的应用sdfjsld解放拉萨酱豆腐睡觉了对方就是劳动法就了</label>
-                     </div>
-
+				</s:iterator>
+                 <!-- 
                  </div>
                  <div class="col-md-2 bacgroundA positionBlocB " style="height: 400px;">
                      <div class="col-sm-12" style="height:20px;background-color: rgba(255,255,204,0.5);text-align: center;margin-top:50px;">
@@ -118,7 +106,7 @@
                          <label style="font-weight: 100">二叉树的应用sdfjsld解放拉萨酱豆腐睡觉了对方就是劳动法就了</label>
                      </div>
 
-                 </div>
+                 </div> -->
 
 
         </div>

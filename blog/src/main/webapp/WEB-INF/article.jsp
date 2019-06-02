@@ -22,6 +22,17 @@
         .row{
             margin-top: 100px;
         }
+        .insideContent{
+        	overflow:auto;
+        	
+        }
+        .insideContentson{
+        	
+        }
+        .w-e-text-container{
+
+            height: 650px !important;
+        }
 
     </style>
 </head>
@@ -31,13 +42,13 @@
     <nav role="navigation" class="col-md-offset-2 col-md-8 navbar navbar-inverse navbar-fixed-top" style="height:80px;padding-top: 15px;    ">
         <div class="container">
             <div class="navbar-header">
-                <a href="main.html" class="navbar-brand">首页</a>
+                <a href="article_main" class="navbar-brand">首页</a>
             </div>
             <div id="navbar" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="aritcle.html">文章</a></li>
-                    <li><a href="love.html">收藏</a></li>
-                    <li ><a href="wirteAritcle.html">写文章</a></li>
+                    <li class="active"><a href="article_findAll">文章</a></li>
+                    <li><a href="collection.action">收藏</a></li>
+                    <li ><a href="article_save">写文章</a></li>
                     <li><a href="#">关于我</a></li>
                 </ul>
             </div>
@@ -46,27 +57,23 @@
     <div class="row">
         <div class="col-md-2" style="background-color:rgba(153,204,255,0.47);height: 1000px;">
             <ul>
-                <li><a href="#">文章1 分时间段卢卡斯京东方逻辑上的法律上电费</a></li>
-                <li><a href="#">文章2</a></li>
-                <li><a href="#">文章3</a></li>
-                <li><a href="#">文章4</a></li>
-                <li><a href="#">文章5</a></li>
-                <li><a href="#">文章6</a></li>
-                <li><a href="#">文章7</a></li>
-                <li><a href="#">文章7</a></li>
+            	<s:iterator value="list" status="st">
+                <li style="border-bottom:1px solid black;"><a href="article_findByID?articlesigle=<s:property value="id" />"><s:property value="title" /></a></li>
+                </s:iterator>
             </ul>
         </div>
-        <div class="col-md-10" style="background-color:rgba(255,255,255,0.8);height:1000px; margin-left: 0px;">
+        <div class="col-md-10 insideContent " style="background-color:rgba(255,255,255,0.8);height:1000px; margin-left: 0px;">
+        	<h2 style="text-align:center;border-bottom:1px solid black;"><s:property value="name" /></h2>
+        	
 			<%
-				String html=(String)request.getParameter("article");
-				out.println(html);
+				String he=(String)request.getAttribute("article");
+				if(he!=null){
+					out.println(he);
+				}
+				
 			%>
         </div>
-
-
     </div>
-
-
 </div>
 
 </body>

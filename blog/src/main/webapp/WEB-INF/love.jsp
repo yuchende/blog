@@ -43,13 +43,13 @@
     <nav role="navigation" class="col-md-offset-2 col-md-8 navbar navbar-inverse navbar-fixed-top" style="height:80px;padding-top: 15px;    ">
         <div class="container">
             <div class="navbar-header">
-                <a href="main.html" class="navbar-brand">首页</a>
+                <a href="article_main" class="navbar-brand">首页</a>
             </div>
             <div id="navbar" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="aritcle.html">文章</a></li>
-                    <li class="active"><a href="love.html">收藏</a></li>
-                    <li ><a href="wirteAritcle.html">写文章</a></li>
+                    <li><a href="article_findAll">文章</a></li>
+                    <li class="active"><a href="collection.action">收藏</a></li>
+                    <li ><a href="article_save">写文章</a></li>
                     <li><a href="#">关于我</a></li>
                 </ul>
             </div>

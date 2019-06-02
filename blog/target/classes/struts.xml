@@ -17,12 +17,15 @@
 			</result>
 		</action>
 		
-		<action name="saveArticle" class="edu.xaut.web.ArticleAction" method="saveArti">
+		<action name="article_*" class="edu.xaut.web.ArticleAction" method="{1}">
 			<result name="success">
 				/WEB-INF/writeArticle.jsp
 			</result>
 			<result name="redirect">
 				/WEB-INF/article.jsp
+			</result>
+			<result name="mainJSP">
+				/WEB-INF/main.jsp
 			</result>
 		</action>
 		

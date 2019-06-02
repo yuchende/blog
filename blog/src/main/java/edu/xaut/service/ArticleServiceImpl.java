@@ -1,6 +1,9 @@
 package edu.xaut.service;
 
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+
 import javax.annotation.*;
 import edu.xaut.bean.Article;
 import edu.xaut.dao.ArticleDao;
@@ -14,6 +17,14 @@ public class ArticleServiceImpl implements ArticleService {
 	public boolean save(Article art) {
 		articleDao.save(art);
 		return true;
+	}
+
+	public List<Article> findAll(int userID) {
+		return articleDao.findAll(userID);
+	}
+
+	public Article findArtiByID(int id, int userID) {
+		return articleDao.findArtiByID(id, userID);
 	}
 	
 }

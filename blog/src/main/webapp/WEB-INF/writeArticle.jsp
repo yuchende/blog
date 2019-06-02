@@ -24,6 +24,11 @@
 
             height: 450px !important;
         }
+        ::-webkit-scrollbar{
+    		width: 0;
+    		height: 0;
+    		color: transparent;
+		}
     </style>
 </head>
 <body>
@@ -32,13 +37,13 @@
     <nav role="navigation" class="col-md-offset-2 col-md-8 navbar navbar-inverse navbar-fixed-top" style="height:80px;padding-top: 15px;    ">
         <div class="container">
             <div class="navbar-header">
-                <a href="main.html" class="navbar-brand">首页</a>
+                <a href="article_main" class="navbar-brand">首页</a>
             </div>
             <div id="navbar" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="aritcle.html">文章</a></li>
-                    <li><a href="love.html">收藏</a></li>
-                    <li class="active"><a href="wirteAritcle.html">写文章</a></li>
+                    <li><a href="article_findAll">文章</a></li>
+                    <li><a href="collection">收藏</a></li>
+                    <li class="active"><a href="article_save">写文章</a></li>
                     <li><a href="#">关于我</a></li>
                 </ul>
             </div>
@@ -47,7 +52,7 @@
     <div class="row" style="overflow: auto">
         <div class="col-md-12" style="background-color:rgba(255,255,255,0.8);height:87vh; margin-left: 0px;padding-top: 10px;">
             <div role="form" class="form-horizontal" style="margin-left: 18px;">
-                <form action="saveArticle.action" method="post">
+                <form action="article_save.action" method="post">
                     <div class="form-group" style="width: 300px;margin-left: 1px;">
                         <input class="form-control" name="name" placeholder="文章标题">
                     </div>

@@ -5,7 +5,10 @@ import java.util.List;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import edu.xaut.bean.Article;
 import edu.xaut.bean.User;
+import edu.xaut.dao.ArticleDao;
+import edu.xaut.dao.ArticleDaoImpl;
 import edu.xaut.dao.UserDaoImpl;
 import edu.xaut.service.UserService;
 import edu.xaut.service.UserServiceImpl;
@@ -16,7 +19,7 @@ public class TestCase {
 	   
 	   
 	}
-	//²éÑ¯ËùÓÐÊý¾Ý
+	//ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	@Test
 	public void test1() {
 
@@ -30,7 +33,7 @@ public class TestCase {
 		}
 	}
 	
-	//Ä£ºý²éÑ¯
+	//Ä£ï¿½ï¿½ï¿½ï¿½Ñ¯
 	@Test
 	public void test2() {
 
@@ -41,6 +44,17 @@ public class TestCase {
 		for(int i=0; i<list.size();i++) {
 			System.out.println(list.get(i));
 		}*/
+		
+		System.out.println("124");
+		ArticleDaoImpl ar=new ArticleDaoImpl();
+		System.out.println("123");
+		//Article art=ar.findArtiByID(1, 1);
+		System.out.println("122");
+		//System.out.println(art.toString());
+		List<Article> list=ar.findAll(1);
+		for(Article art:list) {
+			System.out.println(art.toString());
+		}
 	}
 	
 }
