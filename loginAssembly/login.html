@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <script >
+        function show()  //显示隐藏层和弹出层
+        {
+            var hideobj=document.getElementById("hidebg");
+            hidebg.style.display="block";  //显示隐藏层
+            hidebg.style.height=document.body.clientHeight+"px";  //设置隐藏层的高度为当前页面高度
+            document.getElementById("hidebox").style.display="block";  //显示弹出层
+        }
+        function hide()  //去除隐藏层和弹出层
+        {
+            document.getElementById("hidebg").style.display="none";
+            document.getElementById("hidebox").style.display="none";
+        }
+    </script>
+    <style>
+        body { margin:0px;padding:0px;text-align: center;}
+        #hidebg { position:absolute;left:0px;top:0px;
+            background-color:#000;
+            width:100%;  /*宽度设置为100%，这样才能使隐藏背景层覆盖原页面*/
+            filter:alpha(opacity=60);  /*设置透明度为60%*/
+            opacity:0.6;  /*非IE浏览器下设置透明度为60%*/
+            display:none; /* http://www.jb51.net */
+            z-Index:2;}
+        #hidebox { position:absolute;width:400px;height:400px;top:200px;left:30%;background-color:#fff;cursor:pointer;z-Index:3;border-top: 1px solid gray;
+                   border-bottom:1px solid gray;padding-top:50px;background-color: rgba(248,248,255,0.5);border-radius:6px; display:none;}
+        #content { text-align:center;cursor:pointer;z-Index:1;}
+        body{ background-color: gray;}
+    </style>
+</head>
+<body >
+<div id="hidebg"></div>
+<div id="content" onclick="show()">点击试试</div>
+<div class="login" id="hidebox" onclick="hide()">
+    <form role="form" class="form-horizontal col-sm-offset-1 formposition">
+
+        <h4 style="font-weight:600;">欢迎登陆&nbsp;&nbsp;&nbsp;Myblog</h4>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">name:</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" name="name" placeholder="请输入邮箱或者手机号">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">password:</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" name="name" placeholder="请输入密码">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-11 ">
+                <input type="submit" class="form-control btn btn-success btn-sm" value="登陆">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-11 ">
+                <input type="reset" class="form-control btn btn-info btn-sm" value="重置">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-11 ">
+                <input type="submit" class="form-control btn btn-default btn-sm" value="注册">
+            </div>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
