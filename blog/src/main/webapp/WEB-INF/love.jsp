@@ -49,7 +49,7 @@
                 <ul class="nav navbar-nav">
                     <li><a href="article_findAll">文章</a></li>
                     <li class="active"><a href="collection.action">收藏</a></li>
-                    <li ><a href="article_save">写文章</a></li>
+                    <li ><a href="articleSave">写文章</a></li>
                     <li><a href="#">关于我</a></li>
                 </ul>
             </div>

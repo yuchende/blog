@@ -139,4 +139,8 @@ public class ArticleAction extends ActionSupport {
 		ActionContext.getContext().getSession().put("list", list);
 		return "mainJSP";
 	}
+	public String main2() {
+		list=(List<Article>) ActionContext.getContext().getSession().get("list");
+		return "mainJSP";
+	}
 }

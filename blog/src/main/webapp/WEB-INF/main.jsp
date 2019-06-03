@@ -37,7 +37,7 @@
                     <ul class="nav navbar-nav">
                         <li><a href="article_findAll">文章</a></li>
                         <li><a href="collection">收藏</a></li>
-                        <li ><a href="article_save">写文章</a></li>
+                        <li ><a href="articleSave">写文章</a></li>
                         <li><a href="#">关于我</a></li>
                         <li style="position:absolute;right:5px;"><a onclick="show()">登陆</a></li>
                     </ul>
@@ -86,7 +86,7 @@
 
     </div>
 	<div id="hidebox" class="login col-xs-offset-1" >
-    <form role="form" class="form-horizontal col-sm-offset-1 formposition">
+    <form role="form" action="login" class="form-horizontal col-sm-offset-1 formposition" method="post">
 
         <div class="form-group">
             <label class="col-sm-12 control-label" style="font-weight:600;font-size:25px;text-align: center;margin-bottom: 15px;">欢迎登陆&nbsp;&nbsp;&nbsp;Myblog</label>
@@ -97,13 +97,13 @@
         <div class="form-group">
             <label class="col-sm-2 control-label">name:</label>
             <div class="col-sm-9">
-                <input type="text" class="form-control" name="name" placeholder="请输入邮箱或者手机号">
+                <input type="text" class="form-control" name="username" placeholder="请输入邮箱或者手机号">
             </div>
         </div>
         <div class="form-group">
             <label class="col-sm-2 control-label">password:</label>
             <div class="col-sm-9">
-                <input type="text" class="form-control" name="name" placeholder="请输入密码">
+                <input type="password" class="form-control" name="password" placeholder="请输入密码">
             </div>
         </div>
         <div class="form-group">
@@ -123,6 +123,30 @@
         </div>
     </form>
 </div>
-
+	<%
+		String statusMsg=(String)session.getAttribute("loginMsg");
+		response.setContentType("text/html;charset=utf-8");
+		if(statusMsg!=null){
+			out.println(statusMsg);
+			if(statusMsg.equals("isRight")){
+				out.println("<script>alert(\"登陆成功！祝您访问愉快！\");</script>");
+			}
+			if(statusMsg.equals("isErr")){
+				out.println("<script>alert(\"登陆失败！请检查您的账户！\");</script>");
+			}
+			session.setAttribute("loginMsg",null);
+		}
+	%>
+	<script>
+		var status=${sessionScope.loginStatus};	
+		if(status!=null){//status为空
+			if(status===false){//status不为空,且登陆状态为false，则弹出登陆框
+				show();
+				<% session.setAttribute("loginStatus",null);%>
+			}
+			if(status===true){
+			}
+		}
+	</script>
 </body>
 </html>
