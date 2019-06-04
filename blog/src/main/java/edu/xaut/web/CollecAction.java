@@ -42,7 +42,6 @@ public class CollecAction extends ActionSupport {
 	public void setRes(List<CollecV1> res) {
 		this.res = res;
 	}
-
 	public String findCollec() {
 		List<Collec> list = collecService.findCollecByID(1);
 		res = new ArrayList<CollecV1>();
@@ -64,27 +63,18 @@ public class CollecAction extends ActionSupport {
 						if (varity.equals(((Collec) list.get(j)).getVarity())) {
 							visited[j] = 1;
 							System.out.print(":::" + ((Collec) list.get(j)).getTitle());
-							cole.getSet().add(new insidedo(((Collec) list.get(j)).getTitle(), ((Collec) list.get(j)).getUrl()));
-							
+							cole.getSet().add(new insidedo(((Collec) list.get(j)).getTitle(), ((Collec) list.get(j)).getUrl()));			
 						}
-
 					}
-
 				}
 				res.add(cole);
 				System.out.println();
 			}
 
 		}
-
-		
-	
-		  System.out.println(res);
-		  
+		  System.out.println(res); 
 		  for(CollecV1 co: res) {
 			  System.out.println("1");
-			  
-			  
 			  System.out.println(co.getVarity()+" "); 
 		  for(insidedo in:co.getSet()) {
 			  	System.out.print(in.getTitle()+" | "); 

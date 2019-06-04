@@ -9,6 +9,14 @@
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" href="css/login.css">
+	<script src="js/jquery-1.10.2.min.js"></script>
+	<script>
+        $(document).ready(function(){
+            $("#clickToShow").click(function(){
+                $(".clicktoInsert").fadeIn(2500);
+            });
+        });
+    </script>
 	<script>
         function show()  //显示隐藏层和弹出层
         {
@@ -44,43 +52,49 @@
                 </div>
             </div>
         </nav>
-        <div  id="rowContent" class="row">
-        		<s:iterator value="list" status="st">
-                 <div class="col-md-3 sizeOfA bacgroundA positionBlocA">
-                     <div class="col-sm-12 blockCustomInside" >
-                         <label style=""><a href="article_findByID?articlesigle=<s:property value="id" />"><s:property value="title"/></a></label>
-                     </div>
-                     <a href="article_findByID?articlesigle=<s:property value="id" />" style="color:black;">
-                     <div class="col-sm-12 blockCustomInside2" >
-                         <label style="font-weight: 100"><s:property value="mark"/></label>
-                     </div>
-                     </a>
-                 </div>
-				</s:iterator>
-                 <!-- 
-                 </div>
-                 <div class="col-md-2 bacgroundA positionBlocB " style="height: 400px;">
-                     <div class="col-sm-12" style="height:20px;background-color: rgba(255,255,204,0.5);text-align: center;margin-top:50px;">
-                         <label style="">二叉树的应用</label>
-                     </div>
-                     <div class="col-sm-12" style="height:310px;background-color: rgba(02,102,153,0.12);margin-top: 5px">
-                         <label style="font-weight: 100">二叉树的应用sdfjsld解放拉萨酱豆腐睡觉了对方就是劳动法就了</label>
-                     </div>
+        <div  id="rowContent" class="row" style="overflow:auto;">
+        		<%  int i=1;  %>
+        		<s:iterator value="res" status="st">
+                 <div class="col-md-10 col-md-offset-1" style="border:15px solid  rgba(0,0,0,0.5);;margin-top: 20px;display: flex;justify-content:space-evenly;flex-wrap: wrap;
+                   border-top:8px solid rgba(0,0,0,0.8);border-radius: 15px;
+                    ">
+                    <div class="col-md-12" style="border-bottom:2px solid gray;height:50px;">
+                        <label class=" mouseHoverEvent  col-sm-6" style="margin-top:20px;font-size:20px;background-color:gray;color: white;text-align:left;">文章分类：<s:property value="varity" /></label>
+                    </div>
+                    <div class="col-md-12" style="display: flex;justify-content:space-evenly;flex-wrap: wrap;" >
+						<s:iterator value="set" status="st">
+							<%	if(i<4){%>
+                        <div class="col-md-3 sizeOfA bacgroundA positionBlocA bakstyle">
+                            <div class="col-sm-12 blockCustomInside" >
+                                <label style=""><a href="article_findByID?articlesigle=<s:property value="id" />"><s:property value="title"/></a></label>
+                            </div>
+                            <div class="col-sm-12 blockCustomInside2" >
+                                <label style="font-weight: 100"><s:property value="mark"/></label>
+                            </div>
+                        </div>
+                        <%}else{ %>
+                        	<div class="col-md-3 sizeOfA bacgroundA positionBlocA bakstyle clicktoInsert" style="display:none;">
+                            <div class="col-sm-12 blockCustomInside" >
+                                <label style=""><a href="article_findByID?articlesigle=<s:property value="id" />"><s:property value="title"/></a></label>
+                            </div>
+                            <div class="col-sm-12 blockCustomInside2" >
+                                <label style="font-weight: 100"><s:property value="mark"/></label>
+                            </div>
+                        </div>
+                        <%} %>
+                        <% i++; %>
+                     	</s:iterator>
 
-                 </div>
+                        <div class=" col-md-3  sizeOfA bacgroundA positionBlocA bakstyle">
+                            <div id="clickToShow" class="col-sm-12 blockCustomInside3" >
+                                <label style="margin-left: 17px;margin-top: 60px;font-size:20px;font-weight: 100; ">点击加载</label>
+                            </div>
+                        </div>
 
-
-                 <div class="col-md-3 bacgroundA positionBlocC" style="height: 190px;" >
-                     <div class="col-sm-12" style="height:20px;background-color: rgba(255,255,204,0.5);text-align: center;margin-top:50px;">
-                         <label style="">二叉树的应用</label>
-                     </div>
-                     <div class="col-sm-12" style="height:100px;background-color: rgba(02,102,153,0.12);margin-top: 5px">
-                         <label style="font-weight: 100">二叉树的应用sdfjsld解放拉萨酱豆腐睡觉了对方就是劳动法就了</label>
-                     </div>
-
-                 </div> -->
-
-
+                    </div>
+                </div>
+                <% i=1; %>
+                   </s:iterator>
         </div>
 
 
