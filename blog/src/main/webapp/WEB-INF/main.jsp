@@ -66,7 +66,7 @@
 							<%	if(i<4){%>
                         <div class="col-md-3 sizeOfA bacgroundA positionBlocA bakstyle">
                             <div class="col-sm-12 blockCustomInside" >
-                                <label style=""><a href="article_findByID?articlesigle=<s:property value="id" />"><s:property value="title"/></a></label>
+                                <label style=""><a href="article_findByID?articleVar=<s:property value="varity" />&articlesigle=<s:property value="id" />"><s:property value="title"/></a></label>
                             </div>
                             <div class="col-sm-12 blockCustomInside2" >
                                 <label style="font-weight: 100"><s:property value="mark"/></label>
@@ -75,7 +75,7 @@
                         <%}else{ %>
                         	<div class="col-md-3 sizeOfA bacgroundA positionBlocA bakstyle clicktoInsert" style="display:none;">
                             <div class="col-sm-12 blockCustomInside" >
-                                <label style=""><a href="article_findByID?articlesigle=<s:property value="id" />"><s:property value="title"/></a></label>
+                                <label style=""><a href="article_findByID?articleVar=<s:property value="varity" />&articlesigle=<s:property value="id" />"><s:property value="title"/></a></label>
                             </div>
                             <div class="col-sm-12 blockCustomInside2" >
                                 <label style="font-weight: 100"><s:property value="mark"/></label>

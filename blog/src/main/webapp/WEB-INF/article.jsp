@@ -55,22 +55,37 @@
         </div>
     </nav>
     <div class="row">
-        <div class="col-md-2" style="background-color:rgba(153,204,255,0.47);height: 1000px;">
+        <div class="col-md-2" style="background-color:rgba(153,204,255,0.47);height: 1000px;overflow:auto;">
+        	<% if(null!=request.getAttribute("list")){ %>
             <ul>
             	<s:iterator value="list" status="st">
-                <li style="border-bottom:1px solid black;"><a href="article_findByID?articlesigle=<s:property value="id" />"><s:property value="title" /></a></li>
-                </s:iterator>
+                <li style="border-bottom:1px solid black;margin-top:20px;"><a href="article_findByID?articleVar=<s:property value="varity" />&articlesigle=<s:property value="id" />"><s:property value="title" /></a></li>
+                </s:iterator>    
             </ul>
+            <% }%>
+            <% if(null!=request.getAttribute("av")){ %>
+            <ul>
+            	<label style="border-bottom:1px solid black;font-size:18px;margin-top:10px;word-wrap:break-word;word-break:break-all; overflow: hidden; ">分类：<s:property value="av.varity" /></label>
+            	<s:iterator value="av.set" status="st">
+                        <li style="border-bottom:1px solid black;margin-top:10px;"><a href="article_findByID?articleVar=<s:property value="av.varity" />&articlesigle=<s:property value="id" />"><s:property value="title" /></a></li>
+                </s:iterator>    
+            </ul>
+            <% }%>
+            
         </div>
         <div class="col-md-10 insideContent " style="background-color:rgba(255,255,255,0.8);height:1000px; margin-left: 0px;">
-        	<h2 style="text-align:center;border-bottom:1px solid black;"><s:property value="name" /></h2>
         	
 			<%
 				String he=(String)request.getAttribute("article");
 				if(he!=null){
+				%>
+				<h2 style="text-align:center;border-bottom:1px solid black;"><s:property value="name" /></h2>
+        		<h5 style="text-align:left;font-weight:300;margin-top:20px;">文章描述：<s:property value="describe" /></h5>
+				<% 
 					out.println(he);
+				}else{
+					out.println("请点击右边文章查看！");
 				}
-				
 			%>
         </div>
     </div>

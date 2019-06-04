@@ -22,5 +22,9 @@ public class ArticleDes {
 	public void setMark(String mark) {
 		this.mark = mark;
 	}
+	@Override
+	public String toString() {
+		return "ArticleDes [id=" + id + ", title=" + title + ", mark=" + mark + "]";
+	}
 	
 }

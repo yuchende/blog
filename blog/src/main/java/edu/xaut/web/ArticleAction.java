@@ -25,12 +25,14 @@ public class ArticleAction extends ActionSupport {
 	private ArticleService articleService;
 	
 	int articlesigle;
+	String articleVar;
 	String name;
 	String varity;
 	String article;
 	String describe;
 	List<Article> list;
 	List<ArticleVarity> res;
+	ArticleVarity   av;
 	public String save() {
 		if(name!=null) {
 			Article art=new Article();
@@ -61,14 +63,28 @@ public class ArticleAction extends ActionSupport {
 		System.out.println("findAll");
 		return "redirect";
 	}
+	//通过ID来查找，若成功返回至 文章界面
+	//参数    文章的
+	//返回值  ；一片文章，一个分类对象
+	//返回界面： 文章界面
 	public String findByID() {
 		System.out.println("findbyID");
 		//查询文章
 		Article art=articleService.findArtiByID(articlesigle, 1);
 		article=art.getContent();
 		name=art.getTitle();
+		describe=art.getMark();
 		//从session中获取list
-		list=(List<Article>) ActionContext.getContext().getSession().get("list");
+		av=art.findVarity((List<Article>) ActionContext.getContext().getSession().get("list"), articleVar);
+		System.out.println("-------articleVar");
+		System.out.println(articleVar);
+		System.out.println("-------articleVar");
+		System.out.println("--------av");
+		System.out.println(av.getVarity());
+			for(ArticleDes avv:av.getSet() ) {
+					System.out.print("["+avv.toString()+"]");
+			}
+		System.out.println("--------av");
 		System.out.println(art.toString());
 		return "redirect";
 	}
@@ -176,7 +192,19 @@ public class ArticleAction extends ActionSupport {
 	public void setList(List<Article> list) {
 		this.list = list;
 	}
-
+	public String getArticleVar() {
+		return articleVar;
+	}
+	public void setArticleVar(String articleVar) {
+		this.articleVar = articleVar;
+	}
+	public ArticleVarity getAv() {
+		return av;
+	}
+	public void setAv(ArticleVarity av) {
+		this.av = av;
+	}
+	
 
 	
 }
