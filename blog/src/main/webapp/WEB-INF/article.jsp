@@ -55,7 +55,7 @@
         </div>
     </nav>
     <div class="row">
-        <div class="col-md-2" style="background-color:rgba(153,204,255,0.47);height: 1000px;overflow:auto;">
+        <div class="col-md-2" style="background-color:rgba(153,204,255,0.47);height: 1000px;overflow:auto;padding-top:10px;">
         	<% if(null!=request.getAttribute("list")){ %>
             <ul>
             	<s:iterator value="list" status="st">
@@ -84,7 +84,18 @@
 				<% 
 					out.println(he);
 				}else{
-					out.println("请点击右边文章查看！");
+					%>
+					<s:iterator value="list" status="st">
+					<div class="col-md-12">
+							<div class="col-sm-12">
+							<label style="margin-top:30px;"><a href="article_findByID?articleVar=<s:property value="varity" />&articlesigle=<s:property value="id" />"><s:property value="title" /></a></label>
+							</div>
+							<div class="col-sm-12" style="border-bottom:1px dashed gray;">
+									<label style="margin-top:10px;font-weight:300;"><s:property value="mark" /></label>
+							</div>
+					</div>
+						</s:iterator>  	
+					<%
 				}
 			%>
         </div>
