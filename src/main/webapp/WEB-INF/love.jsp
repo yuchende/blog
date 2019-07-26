@@ -72,7 +72,7 @@ pageEncoding="utf-8"%>
                        		 	<s:iterator value="set" status="st">
                                	 <li>
                                     	<a  href="collection_delete?id=<s:property value="id"/>"><button type="button" class="btn btn-xs btn-default positionBlocA" style="border-radius:17px;">删除</button></a>&nbsp;&nbsp;
-                                    	<a></a><button type="button" class="btn btn-xs btn-default positionBlocA" style="border-radius: 17px;">修改</button></a>&nbsp;&nbsp;
+                                    	<a href="collection_update?id=<s:property value="id"/>"><button type="button" class="btn btn-xs btn-default positionBlocA" style="border-radius: 17px;">修改</button></a>&nbsp;&nbsp;
                                     	<a href="#"><s:property value="title"/></a>
                                	 </li>
                                 </s:iterator>

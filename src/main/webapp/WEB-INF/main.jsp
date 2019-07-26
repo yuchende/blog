@@ -6,14 +6,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+   <%--  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery-1.10.2.min.js"></script> --%>
+	
+	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" href="css/login.css">
-	<script src="js/jquery-1.10.2.min.js"></script>
 	<script>
         $(document).ready(function(){
             $("#clickToShow").click(function(){
                 $(".clicktoInsert").fadeIn(2500);
+                $("#clicktohide").fadeOut('slow');
             });
         });
     </script>
@@ -31,6 +37,10 @@
             document.getElementById("hidebox").style.display="none";
         }
     </script>
+    <style type="text/css">
+ 				.bakstyle:hover{opacity:0.6;filter:alpha(opacity=200);background-color: rgb(0,0,0);font-weight: 600;color:#FFFFFF;}
+ 				 .artHoverFontColor{ text-decoration:none;color:black;}
+    </style>
 </head>
 <body>
 	<div id="hidebg"></div>
@@ -52,6 +62,9 @@
                 </div>
             </div>
         </nav>
+        		
+				
+				
         <div  id="rowContent" class="row" style="overflow:auto;">
         		<%  int i=1;  %>
         		<s:iterator value="res" status="st">
@@ -62,35 +75,38 @@
                         <label class=" mouseHoverEvent  col-md-12" style="margin-top:20px;font-size:20px;background-color:gray;color: white;text-align:left;">文章分类：<s:property value="varity" /></label>
                     </div>
              
-                    <div class="col-md-12" style="display: flex;justify-content:space-evenly;flex-wrap: wrap;" >
+                    <div class="col-md-12" style="display: flex;justify-content:flex-start;flex-wrap: wrap;" >
 						<s:iterator value="set" status="st">
 							<%	if(i<4){%>
                         <div class="col-md-3 sizeOfA bacgroundA positionBlocA bakstyle">
                             <div class="col-sm-12 blockCustomInside" >
-                                <label style=""><a href="article_findByID?articleVar=<s:property value="varity" />&articlesigle=<s:property value="id" />"><s:property value="title"/></a></label>
+                                <label style=""><a href="article_findByID?articlesigle=<s:property value="id" />"><s:property value="title"/></a></label>
                             </div>
                             <div class="col-sm-12 blockCustomInside2" >
-                                <label style="font-weight: 100"><s:property value="mark"/></label>
+                              	<a  class='artHoverFontColor'  href="article_findByID?articlesigle=<s:property value="id" />"> <label style="font-weight: 100"><s:property value="mark"/></label></a>
                             </div>
                         </div>
                         <%}else{ %>
                         	<div class="col-md-3 sizeOfA bacgroundA positionBlocA bakstyle clicktoInsert" style="display:none;">
                             <div class="col-sm-12 blockCustomInside" >
-                                <label style=""><a href="article_findByID?articleVar=<s:property value="varity" />&articlesigle=<s:property value="id" />"><s:property value="title"/></a></label>
+                                <label style=""><a href="article_findByID?articlesigle=<s:property value="id" />"><s:property value="title"/>   </a></label>
                             </div>
                             <div class="col-sm-12 blockCustomInside2" >
-                                <label style="font-weight: 100"><s:property value="mark"/></label>
+                               <a class='artHoverFontColor' href="article_findByID?articlesigle=<s:property value="id" />"> <label style="font-weight: 100"><s:property value="mark"/></label></a>
                             </div>
                         </div>
                         <%} %>
                         <% i++; %>
-                     	</s:iterator>
 
-                        <div class=" col-md-3  sizeOfA bacgroundA positionBlocA bakstyle">
-                            <div id="clickToShow" class="col-sm-12 blockCustomInside3" >
-                                <label style="margin-left: 17px;margin-top: 60px;font-size:20px;font-weight: 100; ">点击加载</label>
-                            </div>
+                     	</s:iterator>
+						<%  %>
+						<s:if test="set.size()>3">
+                       			<div id='clicktohide' class=" col-md-3  sizeOfA bacgroundA positionBlocA bakstyle">
+                           			 	<div id="clickToShow" class="col-sm-12 blockCustomInside3" >
+                               			 			<label style="margin-left: 17px;margin-top: 60px;font-size:20px;font-weight: 100; ">点击加载</label>
+                          				  </div>
                         </div>
+                       </s:if>
 
                     </div>
                 </div>
@@ -112,13 +128,13 @@
         <div class="form-group">
             <label class="col-sm-2 control-label">name:</label>
             <div class="col-sm-9">
-                <input type="text" class="form-control" name="username" placeholder="请输入邮箱或者手机号">
+                <input type="text" class="form-control" name="username" placeholder="请输入邮箱或者手机号" value="tom">
             </div>
         </div>
         <div class="form-group">
             <label class="col-sm-2 control-label">password:</label>
             <div class="col-sm-9">
-                <input type="password" class="form-control" name="password" placeholder="请输入密码">
+                <input type="password" class="form-control" name="password" placeholder="请输入密码"  value="123">
             </div>
         </div>
         <div class="form-group">
@@ -133,7 +149,14 @@
         </div>
         <div class="form-group">
             <div class="col-sm-11 ">
-                <input type="submit" class="form-control btn btn-default btn-sm" value="注册">
+                <!-- <input type="submit" class="form-control btn btn-default btn-sm"  value="注册"> -->
+                <button type="button" class="form-control btn btn-default btn-sm"  data-toggle="collapse" data-target="#demo">其他登陆方式</button>
+                <div id="demo" class="collapse">
+                		<div class="col-sm-2">
+                				<img alt="" style="margin-top:7px;width:33px;height:33px;" src="pic/qq.png">
+                		</div>
+				</div>
+								
             </div>
         </div>
     </form>

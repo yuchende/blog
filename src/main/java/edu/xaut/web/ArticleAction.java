@@ -25,6 +25,7 @@ public class ArticleAction extends ActionSupport {
 	private ArticleService articleService;
 	
 	int articlesigle;
+	int articleid;
 	String articleVar;
 	String name;
 	String varity;
@@ -36,14 +37,15 @@ public class ArticleAction extends ActionSupport {
 	public String save() {
 		if(name!=null) {
 			Article art=new Article();
+			art.setId(articleid);
 			art.setTitle(name);
 			art.setVarity(varity);
 			art.setContent(article);
 			art.setMark(describe);
 			art.setUserID(1);
 			articleService.save(art);
-			System.out.println("--------------");
-			System.out.println(article);
+			System.out.println("-------testupdate-------");
+			System.out.println(art.toString());
 			System.out.println("--------------");
 			System.out.println(art.toString());
 			list=(List<Article>) ActionContext.getContext().getSession().get("list");
@@ -75,19 +77,19 @@ public class ArticleAction extends ActionSupport {
 		name=art.getTitle();
 		describe=art.getMark();
 		//从session中获取list
-		av=art.findVarity((List<Article>) ActionContext.getContext().getSession().get("list"), articleVar);
+		av=art.findVarity((List<Article>) ActionContext.getContext().getSession().get("list"), art.getVarity());
 		System.out.println("-------articleVar");
-		System.out.println(articleVar);
+		/* System.out.println(articleVar); */
 		System.out.println("-------articleVar");
 		System.out.println("--------av");
 		System.out.println(av.getVarity());
 			for(ArticleDes avv:av.getSet() ) {
 					System.out.print("["+avv.toString()+"]");
 			}
-		System.out.println("--------av");
-		System.out.println(art.toString());
+	
 		return "redirect";
 	}
+	
 	public String main() {
 		list=articleService.findAll(1);
 		ActionContext.getContext().getSession().put("list", list);
@@ -127,11 +129,17 @@ public class ArticleAction extends ActionSupport {
 			}
 			System.out.println();
 		}
-		
 		return "mainJSP";
 	}
 	
 	
+	
+	public int getArticleid() {
+		return articleid;
+	}
+	public void setArticleid(int articleid) {
+		this.articleid = articleid;
+	}
 	public List<ArticleVarity> getRes() {
 		return res;
 	}

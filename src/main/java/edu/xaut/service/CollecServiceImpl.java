@@ -4,6 +4,7 @@ import java.util.List;
 import javax.annotation.*;
 import org.springframework.stereotype.Service;
 
+import edu.xaut.bean.Article;
 import edu.xaut.bean.Collec;
 import edu.xaut.dao.CollecDao;
 
@@ -20,5 +21,8 @@ public class CollecServiceImpl implements CollecService {
 
 	public int deleteArticle(int articleID) {
 		return collecDao.deleteArticle(articleID);
+	}
+	public Article findArtiByID(int id, int userID) {
+		return collecDao.findArtiByID(id, userID);
 	}
 }

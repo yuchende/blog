@@ -24,7 +24,6 @@
         }
         .insideContent{
         	overflow:auto;
-        	
         }
         .insideContentson{
         	
@@ -88,7 +87,7 @@
 					<s:iterator value="list" status="st">
 					<div class="col-md-12">
 							<div class="col-sm-12">
-							<label style="margin-top:30px;"><a href="article_findByID?articleVar=<s:property value="varity" />&articlesigle=<s:property value="id" />"><s:property value="title" /></a></label>
+							<label style="margin-top:30px;"><a href="article_findByID?articlesigle=<s:property value="id" />"><s:property value="title" /></a></label>
 							</div>
 							<div class="col-sm-12" style="border-bottom:1px dashed gray;">
 									<label style="margin-top:10px;font-weight:300;"><s:property value="mark" /></label>

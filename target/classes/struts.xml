@@ -19,6 +19,9 @@
 			<result name="success">
 				/WEB-INF/love.jsp
 			</result>
+			<result name="success2">
+				/WEB-INF/writeArticle.jsp
+			</result>
 			<result name="redirectAction" type="redirectAction">article_main</result>
 			<interceptor-ref name="myStack" />
 		</action>

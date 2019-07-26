@@ -26,6 +26,7 @@ public class LoginAction extends ActionSupport {
 		this.password = password;
 	}
 	
+	//回调action
 	public String loginAccess() {
 		if(username!=null&&password!=null) {
 			if(username.equals("tom")&&password.equals("123")) {

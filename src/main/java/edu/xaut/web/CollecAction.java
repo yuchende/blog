@@ -14,11 +14,13 @@ import org.springframework.stereotype.Controller;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
+import edu.xaut.bean.Article;
 import edu.xaut.bean.ArticleDes;
 import edu.xaut.bean.ArticleVarity;
 import edu.xaut.bean.Collec;
 import edu.xaut.bean.CollecV1;
 import edu.xaut.bean.insidedo;
+import edu.xaut.service.ArticleService;
 import edu.xaut.service.CollecService;
 
 @Controller
@@ -27,16 +29,30 @@ public class CollecAction extends ActionSupport {
 	@SuppressWarnings("restriction")
 	@Resource
 	private CollecService collecService;
+	
+	@Resource
+	private ArticleService articleService;
+	
 	private List<CollecV1> res;
 	private int userID;
 	private List<ArticleVarity> res2;
 	private ArticleVarity av;
 	private int id;
 	private String varity;
+	private Article art;
+	private String content;
+	//更新文章
+	public String update() {
+		System.out.println("------------update:"+id);
+		art=collecService.findArtiByID(id, 1);
+		System.out.println(art);
+		content=art.getContent();
+		return "success2";
+	}
 	//删除文章
 	public String delete() {
 		System.out.println("----------------------当前文章的id为"+id);
-		//collecService.deleteArticle(id);
+		collecService.deleteArticle(id);
 		System.out.println("----------------------当前文章的id为"+id);
 		System.out.println("----------------------当前文章的id为"+varity);
 		res2=(List<ArticleVarity>) (ActionContext.getContext().getSession().get("a_v"));
@@ -54,6 +70,7 @@ public class CollecAction extends ActionSupport {
 				break;
 			}
 		}
+		ActionContext.getContext().getSession().put("a_v",res2);	
 		ActionContext.getContext().getSession().put("isDeleteSuccess",1);
 		return SUCCESS;
 	}
@@ -81,11 +98,57 @@ public class CollecAction extends ActionSupport {
 		 * 
 		 * }
 		 */
-		res2=(List<ArticleVarity>) (ActionContext.getContext().getSession().get("a_v"));
+		/*
+		 * res2=(List<ArticleVarity>)
+		 * (ActionContext.getContext().getSession().get("a_v"));
+		 */
 		
+		
+		List<Article> list=articleService.findAll(1);
+		ActionContext.getContext().getSession().put("list", list);
+		//开始解析
+		 res2=new ArrayList<ArticleVarity>();
+		int[] visited=new int[list.size()];
+		for(int i=0;i<visited.length;i++) {
+			visited[i]=0;
+		}
+		for(int i=0;i<list.size();i++) {
+			String varity1=((Article)list.get(i)).getVarity();
+			if(visited[i]==0) {
+				ArticleVarity av=new ArticleVarity();
+				av.setVarity(varity1);
+				av.setSet(new ArrayList<ArticleDes>());
+				for(int j=0;j<list.size();j++) {
+					if(visited[j]==0) {
+						if(varity1.equals(((Article)list.get(j)).getVarity())) {
+							visited[j]=1;
+							ArticleDes ad=new ArticleDes();
+							ad.setId(((Article)list.get(j)).getId());
+							ad.setMark(((Article)list.get(j)).getMark());
+							ad.setTitle(((Article)list.get(j)).getTitle());
+							av.getSet().add(ad);
+						}
+					}
+				}
+				res2.add(av);
+			}
+		}
+
 		return SUCCESS;
 	}
 	
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
+	}
+	public Article getArt() {
+		return art;
+	}
+	public void setArt(Article art) {
+		this.art = art;
+	}
 	public String getVarity() {
 		return varity;
 	}

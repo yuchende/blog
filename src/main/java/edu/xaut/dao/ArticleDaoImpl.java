@@ -17,7 +17,8 @@ public class ArticleDaoImpl implements ArticleDao {
 
 	public boolean save(Article art) {
 		System.out.println("执行中");
-		hibernateTemplate.save(art);
+		/* hibernateTemplate.save(art); */
+		hibernateTemplate.saveOrUpdate(art);
 		System.out.println("执行完");
 		return true;
 	}

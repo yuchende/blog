@@ -25,4 +25,14 @@ public class CollecDaoImpl implements CollecDao {
 		hibernateTemplate.delete(article);
 		return 1;
 	}
+	public Article findArtiByID(int id, int userID) {
+		// TODO Auto-generated method stub
+		String hql="from Article ar where ar.id="+id+"and ar.userID="+userID;
+		List<Article> list=hibernateTemplate.find(hql);
+		Article ar=null;
+		for(Article art:list) {
+			ar=art;
+		}
+		return ar;
+	}
 }
