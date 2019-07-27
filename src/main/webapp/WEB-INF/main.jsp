@@ -117,7 +117,7 @@
 
     </div>
 	<div id="hidebox" class="login col-xs-offset-1" >
-    <form role="form" action="login" class="form-horizontal col-sm-offset-1 formposition" method="post">
+    <form role="form" action="login_loginAccess" class="form-horizontal col-sm-offset-1 formposition" method="post">
 
         <div class="form-group">
             <label class="col-sm-12 control-label" style="font-weight:600;font-size:25px;text-align: center;margin-bottom: 15px;">欢迎登陆&nbsp;&nbsp;&nbsp;Myblog</label>
@@ -153,10 +153,9 @@
                 <button type="button" class="form-control btn btn-default btn-sm"  data-toggle="collapse" data-target="#demo">其他登陆方式</button>
                 <div id="demo" class="collapse">
                 		<div class="col-sm-2">
-                				<img alt="" style="margin-top:7px;width:33px;height:33px;" src="pic/qq.png">
+                				<a href="login_login2Access"><img alt="" style="margin-top:7px;width:33px;height:33px;" src="pic/qq.png"></a>
                 		</div>
-				</div>
-								
+				</div>							
             </div>
         </div>
     </form>
