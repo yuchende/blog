@@ -28,6 +28,8 @@ public class ArticleDaoImpl implements ArticleDao {
 		String hql="from Article art where art.userID="+userID;
 		return hibernateTemplate.find(hql);
 	}
+	
+	
 	public List<Article> findAllWithOutUserID(){
 		String hql="from Article";
 		return hibernateTemplate.find(hql);

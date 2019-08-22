@@ -11,4 +11,5 @@ public interface UserService {
 	 public User findUserByName(String name); 
 	 public boolean findUserByOpenID(String openID);
 	 public User findUserByOpenID2(String openID);
+	 public User findUserByID(int userID);
 }

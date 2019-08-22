@@ -77,9 +77,9 @@ pageEncoding="utf-8"%>
                     <li class="active"><a href="collection_findArti">文章管理</a></li>
                     <li ><a href="articleSave">发表文章</a></li>
                     <li><a href="userInfo">关于我</a></li>
-                    <li style="position:absolute;right:5px;">
-                        <%  Object user=session.getAttribute("user"); if(user!=null){ %> <img style="display:inline-block;background-color:white;width:40px;height:40px;border-radius:20px;" alt="暂无头像" src="${sessionScope.user.face}"> <%  }else{  %><a onclick="show()">登陆</a></li><%     }%>  
-                </ul>
+                     <li style="position:absolute;right:5px; text-align:center;">
+                        <%  Object user=session.getAttribute("user"); if(user!=null){ %><a href="login_unlogin" style="color:white;position:relative;right:60px;">退出登陆</a>  <img style="display:inline-block;background-color:white;width:40px;height:40px;border-radius:20px;position:relative;bottom:43px;" alt="暂无头像" src="${sessionScope.user.face}"> <%  }else{  %><a onclick="show()">登陆</a></li><%     }%>  
+                   </ul>
             </div>
         </div>
     </nav>

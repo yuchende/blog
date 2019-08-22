@@ -42,6 +42,7 @@ public class CollecAction extends ActionSupport {
 	private String varity;
 	private Article art;
 	private String content;
+	private String version;
 	//更新文章
 	public String update() {
 		System.out.println("------------update:"+id);
@@ -49,6 +50,7 @@ public class CollecAction extends ActionSupport {
 		art=collecService.findArtiByID(id, user.getId());
 		System.out.println(art);
 		content=art.getContent();
+		version="1";
 		return "success2";
 	}
 	//删除文章
@@ -191,6 +193,12 @@ public class CollecAction extends ActionSupport {
 	}
 
 
+	public String getVersion() {
+		return version;
+	}
+	public void setVersion(String version) {
+		this.version = version;
+	}
 	public int getUserID() {
 		return userID;
 	}

@@ -32,5 +32,9 @@ public class UserServiceImpl implements UserService {
 		// TODO Auto-generated method stub
 		return ud.findUserByOpenID2(openID);
 	}
+	public User findUserByID(int userID) {
+		// TODO Auto-generated method stub
+		return ud.findUserByID(userID);
+	}
 
 }

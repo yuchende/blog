@@ -23,5 +23,6 @@
 		<property name="content" type="string" column="content"/>
 		<property name="mark" type="string" column="mark"/>
 		<property name="userID" type="integer" column="userID"/>
+		<property name="writeTime" type="date" column="writeTime"/>
 	</class>
 </hibernate-mapping>

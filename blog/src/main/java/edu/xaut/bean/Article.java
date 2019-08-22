@@ -1,5 +1,6 @@
 package edu.xaut.bean;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,6 +11,15 @@ public class Article {
 	String content;
 	String mark;
 	int userID;
+	Date writeTime;
+	
+	
+	public Date getWriteTime() {
+		return writeTime;
+	}
+	public void setWriteTime(Date writeTime) {
+		this.writeTime = writeTime;
+	}
 	public int getId() {
 		return id;
 	}

@@ -84,6 +84,13 @@ public class LoginAction extends ActionSupport implements ServletRequestAware,Se
 		}
 		return SUCCESS;
 	}
+	public String unlogin() {
+		
+		ActionContext.getContext().getSession().put("user", null);
+		ActionContext.getContext().getSession().put("loginStatus", null);
+		return SUCCESS;
+	}
+	
 	//回调action
 	public String loginAccess() {
 		if(username!=null&&password!=null) {

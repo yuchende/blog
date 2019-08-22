@@ -11,8 +11,10 @@ import edu.xaut.bean.ArticleDes;
 import edu.xaut.bean.ArticleVarity;
 import edu.xaut.bean.User;
 import edu.xaut.service.ArticleService;
+import edu.xaut.service.UserService;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.*;
@@ -25,6 +27,10 @@ public class ArticleAction extends ActionSupport {
 	@Resource
 	private ArticleService articleService;
 
+	@SuppressWarnings("restriction")
+	@Resource
+	private UserService userService;
+	
 	int articlesigle;
 	int articleid;
 	String articleVar;
@@ -35,7 +41,9 @@ public class ArticleAction extends ActionSupport {
 	List<Article> list;
 	List<ArticleVarity> res;
 	ArticleVarity av;
-
+    String version;
+    Article at;
+    String articleAuthor;
 	public String save() {
 		if (name != null) {
 			Article art = new Article();
@@ -45,9 +53,15 @@ public class ArticleAction extends ActionSupport {
 			art.setContent(article);
 			art.setMark(describe);
 			User user=(User)ActionContext.getContext().getSession().get("user");
+			if(null!=version&&"1".equals(version)) {
+				//当时修改的文章时，就用原有的时间。
+				art.setWriteTime(articleService.findArtiByID(articleid,user.getId()).getWriteTime());
+			}else {
+				Date date=new Date();
+				art.setWriteTime(new java.sql.Date(date.getTime()));
+			}
 			art.setUserID(user.getId());
 			articleService.save(art);
-		
 			/*
 			 * System.out.println("-------testupdate-------");
 			 * System.out.println(art.toString()); System.out.println("--------------");
@@ -63,7 +77,7 @@ public class ArticleAction extends ActionSupport {
 	}
 
 	public String findAll() {
-		list = articleService.findAll(1);
+		list = articleService.findAllWithOutUserID();
 		ActionContext.getContext().getSession().put("list", list);
 		
 		/*
@@ -82,6 +96,11 @@ public class ArticleAction extends ActionSupport {
 		System.out.println("findbyID");
 		// 查询文章
 		Article art = articleService.findArtiByID(articlesigle, 1);
+		at=art;
+		User user=userService.findUserByID(art.getUserID());
+		System.out.println("author=========="+user.getNickname());
+		
+		articleAuthor=user.getNickname();
 		article = art.getContent();
 		name = art.getTitle();
 		describe = art.getMark();
@@ -168,9 +187,34 @@ public class ArticleAction extends ActionSupport {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+
+	public Article getAt() {
+		return at;
+	}
+
+	public void setAt(Article at) {
+		this.at = at;
+	}
+
+	public String getArticleAuthor() {
+		return articleAuthor;
+	}
+
+	public void setArticleAuthor(String articleAuthor) {
+		this.articleAuthor = articleAuthor;
+	}
 
 	public String getVarity() {
 		return varity;
+	}
+
+	public String getVersion() {
+		return version;
+	}
+
+	public void setVersion(String version) {
+		this.version = version;
 	}
 
 	public void setVarity(String varity) {

@@ -54,6 +54,9 @@ public class UserDaoImpl implements UserDao{
 			 return null;
 		 }
 	 }
+	 public User findUserByID(int userID) {
+		 return  hibernateTemplate.get(User.class, userID);
+	 }
 	  public User findUserByName(String name) { 
 	  User user=new User();
 		/*
