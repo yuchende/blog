@@ -17,4 +17,8 @@ public class ArticleVarity {
 	public void setSet(List<ArticleDes> set) {
 		this.set = set;
 	}
+	@Override
+	public String toString() {
+		return "ArticleVarity [varity=" + varity + ", set=" + set + "]";
+	}
 }

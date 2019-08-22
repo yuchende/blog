@@ -20,7 +20,7 @@
 		<!--<property name="dept_id" type="java.long.Integer" column="dept_id"/>  -->  
 		<property name="varity" type="string" column="varity"/>
 		<property name="title" type="string" column="title"/>
-		<property name="url" type="string" column="url"/>
+		 <property name="url" type="string" column="url"/> 
 		<property name="userID" type="integer" column="userID"/>
 	</class>
 </hibernate-mapping>

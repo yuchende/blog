@@ -26,5 +26,10 @@ public class ArticleServiceImpl implements ArticleService {
 	public Article findArtiByID(int id, int userID) {
 		return articleDao.findArtiByID(id, userID);
 	}
+
+	public List<Article> findAllWithOutUserID() {
+		// TODO Auto-generated method stub
+		return articleDao.findAllWithOutUserID();
+	}
 	
 }

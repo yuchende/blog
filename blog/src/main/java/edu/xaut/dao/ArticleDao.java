@@ -8,4 +8,5 @@ public interface ArticleDao {
 	public boolean save(Article art); 
 	public List<Article> findAll(int userID);
 	public Article findArtiByID(int id,int userID);
+	public List<Article> findAllWithOutUserID();
 }

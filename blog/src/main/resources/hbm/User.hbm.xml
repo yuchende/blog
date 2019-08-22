@@ -19,8 +19,17 @@
 		<!-- property元素是用来配置普通字段和属性关系的 -->
 		<!--<property name="dept_id" type="java.long.Integer" column="dept_id"/>  -->  
 		<property name="username" type="string" column="username"/>
-		<property name="name" type="string" column="name"/>
 		<property name="gender" type="string" column="gender"/>
 		<property name="password" type="string" column="password"/>
+		<!-- qq -->
+		
+		
+		<property name="nickname" type="string" column="nickname"/>
+		<property name="face" type="string" column="face"/>
+		<property name="email" type="string" column="emaila"/>
+		<property name="level" type="string" column="level"/>
+			<property name="openid" type="string" column="openID"/>
+			
+			
 	</class>
 </hibernate-mapping>

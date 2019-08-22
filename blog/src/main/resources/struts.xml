@@ -12,12 +12,36 @@
 							<interceptor-ref name="defaultStack" />
 						</interceptor-stack>
 	</interceptors>
-		<action name="login" class="edu.xaut.web.LoginAction" method="loginAccess">
+	
+		<!--  QQ互联登陆 -->
+		<action name="login_*" class="edu.xaut.web.LoginAction" method="{1}">
 			<result name="success" type="redirectAction">article_main</result>
+			<!-- <result name="success2" >/WEB-INF/index.jsp</result> -->
+				<result name="success2" type="redirect">${qqloginurl}</result>  
 		</action>
-		<action name="collection" class="edu.xaut.web.CollecAction" method="findCollec">
+		
+		
+		<action name="userInfo" class="edu.xaut.web.LoginAction" method="findUserInfo">
+				<result name="success">
+				/WEB-INF/userInfo.jsp
+				</result>
+			<result name="redirectAction" type="redirectAction">article_main</result>
+			<interceptor-ref name="myStack" />
+		</action>
+		
+		
+		<!--  QQ互联登陆 -->
+		<action name="login2" class="edu.xaut.web.AfterLoginAction" method="loginAccess">
+			<result name="success">/WEB-INF/userInfo.jsp</result>
+		</action>
+		
+		
+		<action name="collection_*" class="edu.xaut.web.CollecAction" method="{1}">
 			<result name="success">
 				/WEB-INF/love.jsp
+			</result>
+			<result name="success2">
+				/WEB-INF/writeArticle.jsp
 			</result>
 			<result name="redirectAction" type="redirectAction">article_main</result>
 			<interceptor-ref name="myStack" />

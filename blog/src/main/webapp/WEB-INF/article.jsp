@@ -24,7 +24,6 @@
         }
         .insideContent{
         	overflow:auto;
-        	
         }
         .insideContentson{
         	
@@ -37,25 +36,27 @@
     </style>
 </head>
 <body>
-<div class="container" style="height:1000px;">
+<div class="container" style="height:1500px;">
     <!--            <img src="b.jpg" class="img-responsive">-->
-    <nav role="navigation" class="col-md-offset-2 col-md-8 navbar navbar-inverse navbar-fixed-top" style="height:80px;padding-top: 15px;    ">
+    <nav role="navigation" class="col-md-12 navbar navbar-inverse navbar-fixed-top" style="height:80px;padding-top: 15px;    ">
         <div class="container">
             <div class="navbar-header">
                 <a href="article_main" class="navbar-brand">首页</a>
             </div>
             <div id="navbar" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="article_findAll">文章</a></li>
-                    <li><a href="collection.action">收藏</a></li>
-                    <li ><a href="articleSave">写文章</a></li>
-                    <li><a href="#">关于我</a></li>
+                    <li class="active"><a href="article_findAll">文章浏览</a></li>
+                    <li><a href="collection_findArti">文章管理</a></li>
+                    <li ><a href="articleSave">发表文章</a></li>
+                    <li><a href="userInfo">关于我</a></li>
+                    <li style="position:absolute;right:5px;">
+                        <%  Object user=session.getAttribute("user"); if(user!=null){ %> <img style="display:inline-block;background-color:white;width:40px;height:40px;border-radius:20px;" alt="暂无头像" src="${sessionScope.user.face}"> <%  }else{  %><a onclick="show()">登陆</a></li><%     }%>  
                 </ul>
             </div>
         </div>
     </nav>
-    <div class="row">
-        <div class="col-md-2" style="background-color:rgba(153,204,255,0.47);height: 1000px;overflow:auto;padding-top:10px;">
+    <div class="row col-md-12"  style="height:1500px;display: flex;justify-content:space-start;flex-wrap: none;">
+        <div class="col-md-2" style="background-color:rgba(153,204,255,0.47);height: 1500px;overflow:auto;padding-top:10px;">
         	<% if(null!=request.getAttribute("list")){ %>
             <ul>
             	<s:iterator value="list" status="st">
@@ -73,7 +74,7 @@
             <% }%>
             
         </div>
-        <div class="col-md-10 insideContent " style="background-color:rgba(255,255,255,0.8);height:1000px; margin-left: 0px;">
+        <div class="col-md-10 insideContent " style="background-color:rgba(255,255,255,0.8);height:1500px; margin-left: 10px;">
         	
 			<%
 				String he=(String)request.getAttribute("article");
@@ -88,7 +89,7 @@
 					<s:iterator value="list" status="st">
 					<div class="col-md-12">
 							<div class="col-sm-12">
-							<label style="margin-top:30px;"><a href="article_findByID?articleVar=<s:property value="varity" />&articlesigle=<s:property value="id" />"><s:property value="title" /></a></label>
+							<label style="margin-top:30px;"><a href="article_findByID?articlesigle=<s:property value="id" />"><s:property value="title" /></a></label>
 							</div>
 							<div class="col-sm-12" style="border-bottom:1px dashed gray;">
 									<label style="margin-top:10px;font-weight:300;"><s:property value="mark" /></label>

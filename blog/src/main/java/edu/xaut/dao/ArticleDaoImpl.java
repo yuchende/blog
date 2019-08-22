@@ -17,20 +17,24 @@ public class ArticleDaoImpl implements ArticleDao {
 
 	public boolean save(Article art) {
 		System.out.println("执行中");
-		hibernateTemplate.save(art);
+		/* hibernateTemplate.save(art); */
+		hibernateTemplate.saveOrUpdate(art);
 		System.out.println("执行完");
 		return true;
 	}
 
 	public List<Article> findAll(int userID) {
-		// art where art.userID="+userID;
+		// ;
+		String hql="from Article art where art.userID="+userID;
+		return hibernateTemplate.find(hql);
+	}
+	public List<Article> findAllWithOutUserID(){
 		String hql="from Article";
 		return hibernateTemplate.find(hql);
 	}
-
 	public Article findArtiByID(int id, int userID) {
 		// TODO Auto-generated method stub
-		String hql="from Article ar where ar.id="+id+"and ar.userID="+userID;
+		String hql="from Article ar where ar.id="+id;/*+"and ar.userID="+userID;*/
 		List<Article> list=hibernateTemplate.find(hql);
 		Article ar=null;
 		for(Article art:list) {

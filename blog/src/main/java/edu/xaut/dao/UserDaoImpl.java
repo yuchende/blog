@@ -23,9 +23,8 @@ public class UserDaoImpl implements UserDao{
 		String hql ="from User";
 		return hibernateTemplate.find(hql);
 	}
-
 	public int save(User us) {
-		hibernateTemplate.save(us);
+		hibernateTemplate.saveOrUpdate(us);
 		return 1;
 	}
 	public int delete(int id) {
@@ -33,5 +32,38 @@ public class UserDaoImpl implements UserDao{
 		return 1;
 	}
 	
-	
+	 public boolean findUserByOpenID(String openID) {
+		 String hql="from User us where us.openid='"+openID+"'";
+		 List<User> list= hibernateTemplate.find(hql);
+		 if(list.size()==1) {
+			 return true;
+		 }else {
+			 return false;
+		 }
+	 }
+	 public User findUserByOpenID2(String openID) {
+		 String hql="from User us where us.openid='"+openID+"'";
+		 List<User> list= hibernateTemplate.find(hql);
+		 if(list.size()==1) {
+			 User user=new User();
+			 for(User uss:list) {
+				 user=uss;
+			 }
+			 return user;
+		 }else {
+			 return null;
+		 }
+	 }
+	  public User findUserByName(String name) { 
+	  User user=new User();
+		/*
+		 * user.setUsername(name); List<User>
+		 * list=hibernateTemplate.findByExample(user); for(User uss:list) { user=uss; }
+		 */
+	  String hql ="from User us where us.username='"+name+"'";
+	  List<User> list= hibernateTemplate.find(hql);
+	  for(User uss:list) { user=uss; }
+	  return  user;
+	  }
+	 
 }

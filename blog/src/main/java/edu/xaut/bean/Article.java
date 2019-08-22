@@ -49,7 +49,7 @@ public class Article {
 	}
 	@Override
 	public String toString() {
-		return "Article [id=" + id + ", title=" + title + ", varity=" + varity + ", content=" + content + ", mark="
+		return "Article [id=" + id + ", title=" + title + ", varity=" + varity + ", content=" + ", mark="
 				+ mark + ", userID=" + userID + "]";
 	}
 	public ArticleVarity findVarity(List<Article> list,String varity) {

@@ -13,7 +13,6 @@ public class UserServiceImpl implements UserService {
 	@Resource
 	private UserDao ud;
 	public List<User> findAll() {
-		
 		return ud.findAll();
 	}
 	public int save(User us) {
@@ -22,4 +21,16 @@ public class UserServiceImpl implements UserService {
 	public int delete(int id) {	
 		return ud.delete(id);
 	}
+	 public User findUserByName(String name) {
+		 return ud.findUserByName(name);
+	 }
+	public boolean findUserByOpenID(String openID) {
+		
+		return ud.findUserByOpenID(openID);
+	}
+	public User findUserByOpenID2(String openID) {
+		// TODO Auto-generated method stub
+		return ud.findUserByOpenID2(openID);
+	}
+
 }

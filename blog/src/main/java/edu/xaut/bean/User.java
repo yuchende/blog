@@ -4,10 +4,46 @@ public class User{
 
 	private Integer id;
 	private String username;
-	private String name;
-	private String gender;
 	private String password;
 	
+	private String openid;
+	private String gender;
+	private String face;
+	private String email;
+	private String level;
+	private String nickname;
+
+	
+	public String getNickname() {
+		return nickname;
+	}
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
+	public String getOpenid() {
+		return openid;
+	}
+	public void setOpenid(String openid) {
+		this.openid = openid;
+	}
+	public String getFace() {
+		return face;
+	}
+	public void setFace(String face) {
+		this.face = face;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getLevel() {
+		return level;
+	}
+	public void setLevel(String level) {
+		this.level = level;
+	}
 	public Integer getId() {
 		return id;
 	}
@@ -19,12 +55,6 @@ public class User{
 	}
 	public void setUsername(String username) {
 		this.username = username;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
 	}
 	public String getGender() {
 		return gender;
@@ -40,7 +70,10 @@ public class User{
 	}
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", username=" + username + ", name=" + name + ", gender=" + gender + ", password="
-				+ password + "]";
+		return "User [id=" + id + ", username=" + username + ", password=" + password + ", openid=" + openid
+				+ ", gender=" + gender + ", face=" + face + ", email=" + email + ", level=" + level + ", nickname="
+				+ nickname + "]";
 	}
+	
+	
 }
